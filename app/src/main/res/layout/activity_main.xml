@@ -1,26 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context="com.example.kawazamowienie.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:background="@color/head"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Zamów kawę!"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/myButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kliknij mnie"
-        android:onClick="myButtonClick" />
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Kolumna z RadioButtonami -->
+        <LinearLayout
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <RadioButton
+                    android:id="@+id/espresso"
+                    android:layout_width="205dp"
+                    android:layout_height="67dp"
+                    android:background="@color/esp"
+                    android:text="Espresso"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/cappuccino"
+                    android:layout_width="205dp"
+                    android:layout_height="67dp"
+                    android:background="@color/cap"
+                    android:text="Cappuccino"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/latte"
+                    android:layout_width="205dp"
+                    android:layout_height="66dp"
+                    android:background="@color/lat"
+                    android:text="Latte"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- Zdjęcie po prawej stronie -->
+        <ImageView
+            android:layout_width="205dp"
+            android:layout_height="200dp"
+            android:contentDescription="Kawa"
+            android:scaleType="centerCrop"
+            android:src="@drawable/espresso" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_margin="10dp"
+        android:background="@color/black"
+
+
+        >
+
+    </View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lat"
+        android:text="Wybierz dodatki: "
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/cukier"
+        android:layout_width="410dp"
+        android:layout_height="wrap_content"
+        android:background="@color/head"
+        android:text="Cukier"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <CheckBox
+        android:id="@+id/mleko"
+        android:layout_width="410dp"
+        android:layout_height="wrap_content"
+        android:background="@color/head"
+        android:text="Mleko"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_margin="10dp"
+        android:background="@color/black" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lat"
+        android:padding="20dp"
+        android:text="Ile chcesz zamówić kaw"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- TextView do wyświetlania wartości -->
+        <SeekBar
+            android:id="@+id/ilosc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="30"
+            >
+
+        </SeekBar>
+
+        <TextView
+            android:id="@+id/seekBarValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="18sp"
+            android:layout_gravity="center">
+
+        </TextView>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/zamow_button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        android:text="Zamów"
+        android:textSize="30sp" />
+
+</LinearLayout>
